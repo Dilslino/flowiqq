@@ -229,3 +229,4 @@ LOGGING = {
 if os.environ.get('VERCEL_ENV') == 'production':
     ALLOWED_HOSTS.append('.vercel.app')
     DEBUG = False
+
