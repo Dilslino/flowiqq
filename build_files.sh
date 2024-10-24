@@ -7,5 +7,12 @@ python3.9 -m pip install --upgrade pip
 python3.9 -m pip install -r requirements.txt
 
 # Collect static files
-python3.9 manage.py collectstatic --noinput --clear
+python3.9 manage.py collectstatic --noinput
+
+# Make migrations
+python3.9 manage.py makemigrations
+
+# Apply migrations
+python3.9 manage.py migrate
+
 echo "BUILD END"
