@@ -1,0 +1,51 @@
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    width: 20px;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+form textarea {
+    height: 150px;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .social-icons a {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+    }
+}

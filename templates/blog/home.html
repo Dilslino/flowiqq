@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center py-5">
+    <div class="container">
+        <h1 class="display-4 mb-3" data-aos="fade-up">Selamat Datang di FlowIQ</h1>
+        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Menjelajahi pikiran, memahami diri, dan meningkatkan kualitas hidup</p>
+        <a href="{% url 'post_list' %}" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">Jelajahi Artikel</a>
+    </div>
+</div>
+
+<section class="featured-posts py-5">
+    <div class="container">
+        <h2 class="text-center mb-4" data-aos="fade-up">Artikel Unggulan</h2>
+        <div class="row">
+            {% for post in featured_posts %}
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1|stringformat:'d'}}00">
+                <div class="card h-100 shadow-sm">
+                    {% if post.featured_image %}
+                    <img src="{{ post.featured_image.url }}" class="card-img-top" alt="{{ post.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.excerpt|truncatewords:20 }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if featured_posts_count > 6 %}
+        <div class="text-center mt-4">
+            <a href="{% url 'post_list' %}?featured=1" class="btn btn-primary">Lihat Semua Artikel Unggulan</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="latest-posts py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4" data-aos="fade-up">Artikel Terbaru</h2>
+        <div class="row">
+            {% for post in latest_posts %}
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1|stringformat:'d'}}00">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.excerpt|truncatewords:15 }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 d-flex justify-content-between align-items-center">
+                        <small class="text-muted">{{ post.created_on|date:"d M Y" }}</small>
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-outline-primary btn-sm">Baca</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% if latest_posts_count > 6 %}
+        <div class="text-center mt-4">
+            <a href="{% url 'post_list' %}" class="btn btn-primary">Lihat Semua Artikel Terbaru</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="newsletter-section bg-primary text-white py-5 text-center">
+    <div class="container">
+        <h2 class="mb-3" data-aos="fade-up">Bergabung dengan Newsletter Kami</h2>
+        <p class="mb-4" data-aos="fade-up" data-aos-delay="200">Dapatkan artikel terbaru dan wawasan psikologi langsung di inbox Anda</p>
+        <form action="{% url 'newsletter_signup' %}" method="post" class="newsletter-form" data-aos="fade-up" data-aos-delay="400">
+            {% csrf_token %}
+            <div class="input-group mb-3 mx-auto" style="max-width: 500px;">
+                {{ newsletter_form.email }}
+                <button type="submit" class="btn btn-light">Berlangganan</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+</script>
+{% endblock %}

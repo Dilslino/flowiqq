@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Tentang FlowIQ - Blog Psikologi{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="text-center mb-5" data-aos="fade-up">Tentang FlowIQ</h1>
+            <div class="card shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h2 class="card-title" data-aos="fade-right">Misi Kami</h2>
+                            <p class="card-text" data-aos="fade-right" data-aos-delay="100">FlowIQ adalah blog yang berfokus pada topik psikologi dan kesehatan mental. Kami bertujuan untuk menyediakan informasi yang akurat, terpercaya, dan mudah dipahami tentang berbagai aspek psikologi dalam kehidupan sehari-hari.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="card-title" data-aos="fade-left">Tim Kami</h2>
+                            <p class="card-text" data-aos="fade-left" data-aos-delay="100">Tim kami terdiri dari para profesional di bidang psikologi yang berkomitmen untuk berbagi pengetahuan dan wawasan mereka kepada pembaca. Kami percaya bahwa pemahaman yang lebih baik tentang pikiran dan perilaku manusia dapat membantu meningkatkan kualitas hidup setiap individu.</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="card-title mt-4" data-aos="fade-up">Tujuan Kami</h2>
+                    <ul class="card-text" data-aos="fade-up" data-aos-delay="100">
+                        <li>Menyediakan konten psikologi yang berkualitas dan mudah diakses</li>
+                        <li>Meningkatkan kesadaran tentang pentingnya kesehatan mental</li>
+                        <li>Membantu pembaca memahami dan mengatasi tantangan psikologis dalam kehidupan sehari-hari</li>
+                        <li>Mendorong diskusi terbuka tentang topik-topik psikologi</li>
+                    </ul>
+                    
+                    <div class="text-center mt-5" data-aos="zoom-in">
+                        <img src="{% static 'img/team.jpg' %}" alt="Tim FlowIQ" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Hubungi Kami</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

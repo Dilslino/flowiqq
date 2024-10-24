@@ -1,0 +1,58 @@
+.blog-post {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.featured-image-container {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.featured-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.blog-content h2, .blog-content h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-tags .badge {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}
+
+.post-share .btn {
+    margin-right: 0.5rem;
+}
+
+.comments .card {
+    border-left: 4px solid #007bff;
+}
+
+.comment-form textarea {
+    height: 150px;
+}
+
+.related-posts .card {
+    transition: transform 0.3s;
+}
+
+.related-posts .card:hover {
+    transform: translateY(-5px);
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hubungi Kami - FlowIQ{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <h1 class="text-center mb-5" data-aos="fade-up">Hubungi Kami</h1>
+            <div class="card shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                            <h4>Informasi Kontak</h4>
+                            <ul class="list-unstyled contact-info">
+                                <li><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta, Indonesia</li>
+                                <li><i class="fas fa-phone"></i> +62 123 456 7890</li>
+                                <li><i class="fas fa-envelope"></i> info@flowiq.com</li>
+                            </ul>
+                            <h4 class="mt-4">Ikuti Kami</h4>
+                            <div class="social-icons" data-aos="fade-up" data-aos-delay="300">
+                                <a href="#" class="btn btn-outline-primary"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn btn-outline-info"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn btn-outline-danger"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn btn-outline-secondary"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6" data-aos="fade-left">
+                            <h4>Kirim Pesan</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for field in form %}
+                                    <div class="mb-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1|stringformat:'d'}}00">
+                                        {{ field.label_tag }}
+                                        {{ field }}
+                                        {% if field.errors %}
+                                            <div class="invalid-feedback d-block">
+                                                {{ field.errors|join:", " }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                                <button type="submit" class="btn btn-primary w-100" data-aos="fade-up" data-aos-delay="400">Kirim Pesan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

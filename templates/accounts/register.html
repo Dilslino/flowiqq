@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg" data-aos="fade-up">
+                <div class="card-body p-5">
+                    <h2 class="card-title text-center mb-4" data-aos="fade-up" data-aos-delay="100">Register</h2>
+                    <form method="post" data-aos="fade-up" data-aos-delay="200">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="mb-3">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ field.errors|join:", " }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-primary w-100 mt-3">Register</button>
+                    </form>
+                    <p class="mt-4 text-center" data-aos="fade-up" data-aos-delay="300">Sudah punya akun? <a href="{% url 'login' %}">Login di sini</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+</script>
+{% endblock %}

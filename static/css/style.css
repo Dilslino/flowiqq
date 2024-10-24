@@ -1,0 +1,31 @@
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .navbar {
+    background-color: #222 !important;
+}
+
+.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.dark-mode .card {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .btn-outline-success {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.dark-mode .btn-outline-success:hover {
+    color: #fff;
+    background-color: #28a745;
+}
