@@ -23,5 +23,8 @@
             "src": "/(.*)",
             "dest": "flowiq/wsgi.py"
         }
-    ]
+    ],
+    "env": {
+        "DJANGO_SETTINGS_MODULE": "flowiq.settings"
+    }
 }
